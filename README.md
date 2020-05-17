@@ -1,6 +1,6 @@
-# imageuploader
+# Image compressor 
 
-> My extraordinary Nuxt.js project
+> Compress your image and upload it to cloud storage
 
 ## Build Setup
 
