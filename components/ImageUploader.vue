@@ -99,6 +99,7 @@
 <script>
 import storage from "../plugins/Firebase";
 import fileUploadLoading from "../assets/FileUploadLoading.jpg";
+import {formatBytes} from "../utils/utilMethods.js"
 
 export default {
   name: "ImageUploader",
@@ -120,16 +121,6 @@ export default {
   },
 
   methods: {
-    formatBytes(bytes, decimals = 2) {
-      if (bytes === 0) return "0 Bytes";
-      const k = 1024;
-      const dm = decimals < 0 ? 0 : decimals;
-      const sizes = ["Bytes", "KB", "MB"];
-
-      const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
-    },
     handleUploadImage() {
       this.uploadingStatus = "uploading";
       this.uploadTask = storage
@@ -177,7 +168,8 @@ export default {
     },
     removeImage() {
       this.$emit("remove", this.index);
-    }
+    },
+    formatBytes
   }
 };
 </script>

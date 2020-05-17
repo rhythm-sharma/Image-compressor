@@ -176,6 +176,18 @@
     </b-modal>
     <b-card class="shadow-lg p-3 mt-5 mb-5 bg-white rounded mr-auto ml-auto responsive-card">
       <div class="row border-bottom">
+        <nuxt-link :id="`gallery`" to="/gallery" class="cursor-pointer-force">
+            <i
+              class="fas fa-images mt-2 outline-none theme-color"
+            ></i>
+            <span class="theme-color">Gallery</span>
+        </nuxt-link>
+        <b-popover
+          target="gallery"
+          placement="rightbottom"
+          triggers="hover"
+          content="View all uploaded images to the cloud storage"
+        ></b-popover>
         <h3 class="card-title ml-auto mr-auto">File Upload</h3>
         <i
           :id="`configure-image-settings`"
@@ -351,6 +363,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.theme-color {
+  color: #e45454;
+}
+
 .dropzone-container {
   border: 4px dashed #eeeeee !important;
   border-radius: 10px !important;
@@ -367,6 +384,11 @@ export default {
 .cursor-pointer-force {
   cursor: pointer !important;
 }
+
+.cursor-pointer-force:hover {
+  text-decoration: none !important;
+}
+
 
 .image-upload-container {
   overflow-y: scroll;
