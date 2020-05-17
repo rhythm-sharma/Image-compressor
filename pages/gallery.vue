@@ -35,10 +35,9 @@ export default {
     },
 
     mounted() {
-        // Create a reference under which you want to list
+        // Created a reference of bucket  
         const listRef = storage.ref('/travographer');
-
-        // Find all the prefixes and items.
+        // Created a reference for list 
         listRef.listAll().then((res) => {
         res.items.forEach((itemRef) => {
             this.imgStorageData = [...this.imgStorageData, itemRef.name]

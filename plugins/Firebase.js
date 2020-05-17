@@ -1,10 +1,6 @@
 import "firebase/storage";
 import * as firebase from "firebase";
 
-// import firebase from "firebase";       
-// import VueFirebase from 'vue-firebase'
-
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBDjtgRNcPbmvcf5tvFd3OFj1wTPpiYlV0",

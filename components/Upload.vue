@@ -246,13 +246,15 @@
           <img height="150px" width="160px" :src="EmptyIllustration" alt="">
         </div>
         <div v-else class="image-upload-container col">
-          <div v-for="(file, index) in output.slice().reverse()" :key="index">
-            <image-uploader
-              :file="file.file"
-              :loadingState="file.loadingState"
-              :index="output.length - 1 - index"
-              @remove="removeOutputImage"
-            />
+          <div class="reverse-order">
+            <div v-for="(file, index) in output" :key="index">
+              <image-uploader
+                :file="file.file"
+                :loadingState="file.loadingState"
+                :index="index"
+                @remove="removeOutputImage"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -286,6 +288,7 @@ export default {
         mimeType: "",
         convertSize: 5000000,
         success: (result, index) => {
+          // success state runs when image gets compressed successfully
           console.log("Output: ", result);
           this.output.forEach(item => {
             console.log("this.output: ", this.output);
@@ -297,6 +300,7 @@ export default {
         },
         error: (err) => {
           window.alert(err.message);
+          // the below code will delete the corrupt file from the output list
           this.output.forEach((item, index) => {
             if (item.loadingState === "loading") {
               this.output.splice(index, 1);
@@ -327,7 +331,9 @@ export default {
       new Compressor(file, this.options);
     },
 
+    // it runs when images are slected 
     change(e) {
+      // retrieving the image files and adding it to output state 
       Object.keys(e.target.files).forEach(key => {
         this.output.push({
           loadingState: "loading",
@@ -342,8 +348,10 @@ export default {
       e.preventDefault();
     },
 
+    // it runs when images are slected 
     drop(e) {
       e.preventDefault();
+      // retrieving the image files and adding it to output state 
       Object.keys(e.dataTransfer.files).forEach(key => {
         this.output.push({
           loadingState: "loading",
@@ -410,6 +418,12 @@ export default {
   margin-right: -15px;
   margin-left: -15px;
 } */
+
+
+.reverse-order {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
 
 .responsive-row-col {
