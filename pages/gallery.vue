@@ -5,12 +5,12 @@
                 <h3 class="gallery-heading m-3 mr-5 ml-lg-4 cursor-pointer-force"><i class="fas fa-long-arrow-alt-left"></i>Back</h3>
             </nuxt-link>
         </div>
-        <div v-if="loadingState === 'error'" class="w-100 full-height ">
+        <div v-if="loadingState === 'error'" class="w-100">
              <p class="m-4 text-light">
                 There seems to have been an issue in fetching things!
             </p>
         </div>
-        <div v-else class="row ml-3 mr-3 full-height">
+        <div v-else class="row ml-3 mr-3">
             <div v-for="(imgName, index) in imgStorageData" :key="index">
                 <gallery-card :name="imgName"/>
             </div>
@@ -70,10 +70,6 @@ export default {
   position: relative;
   font-size: 20px;
   line-height: 1.3;
-}
-
-.full-height {
-    height: 1080px !important;
 }
 
 .cursor-pointer-force {
