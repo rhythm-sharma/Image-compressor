@@ -1,6 +1,9 @@
 # Image compressor 
 
-> Compress your image and upload it to cloud storage
+## have a look at live website : https://nifty-rosalind-e664be.netlify.app/
+
+## Discription 
+#### Compress your image and upload it to cloud storage
 
 ## Build Setup
 
